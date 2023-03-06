@@ -16,3 +16,6 @@ class LoginPageLocators():
     #REGISTER_EMAIL_LINK = (By.CSS_SELECTOR, '#register_form input[type="email"]')
     #REGISTER_PASSWORD_LINK = (By.CSS_SELECTOR, '#register_form input[name*="password1"]')
     #REGISTER_CONFIRM_PASSWORD_LINK = (By.CSS_SELECTOR, '#register_form input[name*="password2"]')
+
+class ProductPageLocators():
+    BASKET_LINK = (By.CSS_SELECTOR, "button[class*='add-to']")
