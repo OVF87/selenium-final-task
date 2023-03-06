@@ -25,7 +25,7 @@ class ProductPage(BasePage):
 
     def should_be_promo(self):
         #проверка на промо в адресной ссылке
-        assert "?promo=newYear" in self.browser.current_url
+        assert "?promo=offer" in self.browser.current_url
 
 
     def should_be_product_in_basket(self):
