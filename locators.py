@@ -1,10 +1,5 @@
 # Напишите здесь свой код :-)
-
 from selenium.webdriver.common.by import By
-
-
-class MainPageLocators():
-    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
 
 
 class LoginPageLocators():
@@ -19,3 +14,9 @@ class ProductPageLocators():
     PRICE_PRODUCT = (By.CSS_SELECTOR, "p[class*='price']")
     NAME_PRODUCT = (By.CSS_SELECTOR, 'div h1')
     SUCCESS_MESSAGE = (By.CSS_SELECTOR, 'div.alertinner ')
+
+
+class BasePageLocators():
+    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+
