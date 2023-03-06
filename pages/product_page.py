@@ -25,7 +25,7 @@ class ProductPage(BasePage):
 
     def should_be_promo(self):
         #проверка на промо в адресной ссылке
-        assert "?promo=offer" in self.browser.current_url
+        assert "?promo=offer" in self.browser.current_url or "?promo=newYear" in self.browser.current_url
 
 
     def should_be_product_in_basket(self):
@@ -36,4 +36,16 @@ class ProductPage(BasePage):
     def should_be_price_product_equal_total(self):
         #проверка на совпадение цены товара и общей цены в корзине
         assert self.get_text(*ProductPageLocators.PRICE_PRODUCT) == self.get_text(*ProductPageLocators.TOTAL_IN_BASKET)
+
+
+    def should_not_be_success_message(self):
+        #проверка сообщения об успешном добавлении в корзину
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+       "Success message is presented, but should not be"
+
+
+    def should_not_be_disappeared_success_message(self):
+        #проверка что сообщение о добавлении товара в корзину пропало
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), \
+       "Success message is presented, but should disappear"
 
