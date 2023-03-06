@@ -5,7 +5,6 @@ import math
 
 
 class BasePage():
-
     def __init__(self, browser, url, timeout=10):
         self.browser = browser
         self.url = url
@@ -16,8 +15,8 @@ class BasePage():
         self.browser.get(self.url)
 
 
-
     def is_element_present(self, how, what):
+        #проверка наличия элемента на странице
         try:
             self.browser.find_element(how, what)
         except NoSuchElementException:
@@ -26,6 +25,7 @@ class BasePage():
 
 
     def solve_quiz_and_get_code(self):
+        #математическое вычисление
         alert = self.browser.switch_to.alert
         x = alert.text.split(" ")[2]
         answer = str(math.log(abs((12 * math.sin(float(x))))))
@@ -38,3 +38,12 @@ class BasePage():
             alert.accept()
         except NoAlertPresentException:
             print("No second alert presented")
+
+
+    def get_text(self, how, what):
+        #получение текста со страницы
+        if self.is_element_present(how, what):
+            return self.browser.find_element(how, what).text
+        else:
+            print('Not element in page')
+
