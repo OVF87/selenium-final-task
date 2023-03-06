@@ -18,3 +18,4 @@ class ProductPageLocators():
     NAME_PRODUCT_IN_BASKET = (By.CSS_SELECTOR, "#messages strong")
     PRICE_PRODUCT = (By.CSS_SELECTOR, "p[class*='price']")
     NAME_PRODUCT = (By.CSS_SELECTOR, 'div h1')
+    SUCCESS_MESSAGE = (By.CSS_SELECTOR, 'div.alertinner ')
