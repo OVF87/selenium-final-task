@@ -1,16 +1,17 @@
-# Напишите здесь свой код :-)
+# Тест главной страницы
 import pytest
 from selenium.webdriver.common.by import By
-from pages.main_page import MainPage
-from pages.login_page import LoginPage
-from pages.product_page import ProductPage
+
 from pages.basket_page import BasketPage
+from pages.login_page import LoginPage
+from pages.main_page import MainPage
+from pages.product_page import ProductPage
 
 
 @pytest.mark.login_guest
 class TestLoginFormMainPage():
     def test_guest_can_go_to_login_page(self, browser):
-        #проверка перехода на страницу вход\регистрация
+        # Проверка перехода на страницу вход\регистрация
         self.link = "http://selenium1py.pythonanywhere.com/"
         self.page = MainPage(browser, self.link)
         self.page.open()
@@ -20,15 +21,15 @@ class TestLoginFormMainPage():
 
 
     def test_guest_should_see_login_link(self, browser):
-        #проверка наличия ссылки на страницу входа\регистрации
+        # Проверка наличия ссылки на страницу входа\регистрации
         self.link = "http://selenium1py.pythonanywhere.com/"
         self.page = MainPage(browser, self.link)
         self.page.open()
         self.page.should_be_login_link()
 
-
+@pytest.mark.need_review
 def  test_guest_cant_see_product_in_basket_opened_from_main_page(browser):
-    #проверка в корзине нет товара
+    # Проверка в корзине нет товара
     link = 'http://selenium1py.pythonanywhere.com/'
     page = ProductPage(browser,link)
     page.open()
