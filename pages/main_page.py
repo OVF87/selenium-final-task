@@ -1,6 +1,6 @@
-# Напишите здесь свой код :-)
-from .base_page import BasePage
+# Определение класса главной страницы
 from selenium.webdriver.common.by import By
+from .base_page import BasePage
 
 
 class MainPage(BasePage):
